@@ -1,8 +1,7 @@
-pipeline{
-    agent{
-        agent any
-    }
-    stages{
+pipeline {
+    agent any
+
+    stages {
         stage("Restore dependencies"){
             when{
                 anyOf {
@@ -22,7 +21,7 @@ pipeline{
                 }
             } 
             steps{
-                bat "dontnet build --no-restore"
+                bat "dotnet build --no-restore"
             }
         }
         stage("Run tests"){
